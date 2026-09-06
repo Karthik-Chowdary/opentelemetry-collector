@@ -15,6 +15,18 @@ import (
 	"go.opentelemetry.io/collector/pdata/pcommon"
 )
 
+func TestNewProfilesInitializesDictionarySentinels(t *testing.T) {
+	dictionary := NewProfiles().Dictionary()
+
+	assert.Equal(t, 1, dictionary.MappingTable().Len())
+	assert.Equal(t, 1, dictionary.LocationTable().Len())
+	assert.Equal(t, 1, dictionary.FunctionTable().Len())
+	assert.Equal(t, 1, dictionary.LinkTable().Len())
+	assert.Equal(t, []string{""}, dictionary.StringTable().AsRaw())
+	assert.Equal(t, 1, dictionary.AttributeTable().Len())
+	assert.Equal(t, 1, dictionary.StackTable().Len())
+}
+
 func TestReadOnlyProfilesInvalidUsage(t *testing.T) {
 	pd := NewProfiles()
 	assert.False(t, pd.IsReadOnly())

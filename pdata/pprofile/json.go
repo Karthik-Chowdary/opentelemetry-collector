@@ -6,6 +6,7 @@ package pprofile // import "go.opentelemetry.io/collector/pdata/pprofile"
 import (
 	"slices"
 
+	"go.opentelemetry.io/collector/pdata/internal"
 	"go.opentelemetry.io/collector/pdata/internal/json"
 	"go.opentelemetry.io/collector/pdata/internal/otlp"
 )
@@ -56,7 +57,7 @@ func (u *JSONUnmarshaler) UnmarshalProfiles(buf []byte) (Profiles, error) {
 	iter := json.BorrowIterator(buf)
 	defer json.ReturnIterator(iter)
 	iter.SetDisallowUnknownFields(u.DisallowUnknownFields)
-	pd := NewProfiles()
+	pd := newProfiles(internal.NewExportProfilesServiceRequest(), internal.NewState())
 	pd.getOrig().UnmarshalJSON(iter)
 	if iter.Error() != nil {
 		return Profiles{}, iter.Error()

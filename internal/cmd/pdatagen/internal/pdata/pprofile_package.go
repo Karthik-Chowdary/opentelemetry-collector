@@ -90,6 +90,16 @@ var profiles = &messageStruct{
 		},
 	},
 	hasWrapper: true,
+	newFuncBody: `	ms := newProfiles(internal.NewExportProfilesServiceRequest(), internal.NewState())
+	dictionary := ms.Dictionary()
+	dictionary.MappingTable().AppendEmpty()
+	dictionary.LocationTable().AppendEmpty()
+	dictionary.FunctionTable().AppendEmpty()
+	dictionary.LinkTable().AppendEmpty()
+	dictionary.StringTable().Append("")
+	dictionary.AttributeTable().AppendEmpty()
+	dictionary.StackTable().AppendEmpty()
+	return ms`,
 }
 
 var profilesData = &messageStruct{

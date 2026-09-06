@@ -32,6 +32,7 @@ type messageStruct struct {
 	fields          []Field
 	hasWrapper      bool
 	hasOnlyInternal bool
+	newFuncBody     string
 }
 
 func (ms *messageStruct) getName() string {
@@ -79,6 +80,7 @@ func (ms *messageStruct) templateFields(packageInfo *PackageInfo) map[string]any
 		"origAccessor":  origAccessor(hasWrapper),
 		"stateAccessor": stateAccessor(hasWrapper),
 		"packageName":   packageInfo.name,
+		"newFuncBody":   ms.newFuncBody,
 		"imports":       packageInfo.imports,
 		"testImports":   packageInfo.testImports,
 	}

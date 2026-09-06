@@ -15,7 +15,6 @@ import (
 // attributes for testing reference conversion.
 func newProfilesWithAttributes() Profiles {
 	profiles := NewProfiles()
-	profiles.Dictionary().StringTable().Append("") // index 0
 
 	rp := profiles.ResourceProfiles().AppendEmpty()
 	rp.Resource().Attributes().PutStr("service.name", "test-service")

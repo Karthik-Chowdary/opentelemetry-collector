@@ -24,7 +24,6 @@ func TestResolveProfilesReferencesEmpty(t *testing.T) {
 func TestResolveProfilesReferencesWithKeyRef(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("") // index 0
 	dict.StringTable().Append("test-key")
 	dict.StringTable().Append("test-value")
 
@@ -57,7 +56,6 @@ func TestResolveProfilesReferencesWithKeyRef(t *testing.T) {
 func TestResolveProfilesReferencesInvalidIndices(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("") // index 0
 	dict.StringTable().Append("valid")
 
 	rp := profiles.ResourceProfiles().AppendEmpty()
@@ -95,7 +93,6 @@ func TestResolveAnyValueReferenceWithPooling(t *testing.T) {
 
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("")
 	dict.StringTable().Append("pooled-value")
 
 	anyVal := &internal.AnyValue{
@@ -114,7 +111,6 @@ func TestResolveAnyValueReferenceWithPooling(t *testing.T) {
 func TestResolveAnyValueReferenceNestedKvList(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("")
 	dict.StringTable().Append("nested-key")
 	dict.StringTable().Append("nested-value")
 
@@ -151,7 +147,6 @@ func TestResolveAnyValueReferenceNestedKvList(t *testing.T) {
 func TestResolveAnyValueReferenceNestedArray(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("")
 	dict.StringTable().Append("array-item-1")
 	dict.StringTable().Append("array-item-2")
 
@@ -191,7 +186,6 @@ func TestResolveAnyValueReferenceNestedArray(t *testing.T) {
 func TestConvertProfilesToReferencesEmpty(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("")
 
 	convertProfilesToReferences(profiles)
 
@@ -202,7 +196,6 @@ func TestConvertProfilesToReferencesEmpty(t *testing.T) {
 func TestConvertProfilesToReferencesDeduplication(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("")
 
 	rp := profiles.ResourceProfiles().AppendEmpty()
 	rp.Resource().Attributes().PutStr("key1", "duplicated-value")
@@ -427,7 +420,6 @@ func TestConvertMapToReferencesExistingKeyRef(t *testing.T) {
 func TestResolveAnyValueReferenceNonStringTypes(t *testing.T) {
 	profiles := NewProfiles()
 	dict := profiles.Dictionary()
-	dict.StringTable().Append("")
 
 	// Test with int value (should not be affected)
 	anyVal := &internal.AnyValue{

@@ -54,26 +54,12 @@ func TestProfilesMergeTo(t *testing.T) {
 				p := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				p.Dictionary().MappingTable().AppendEmpty()
-				p.Dictionary().LocationTable().AppendEmpty()
-				p.Dictionary().FunctionTable().AppendEmpty()
-				p.Dictionary().LinkTable().AppendEmpty()
-				p.Dictionary().StringTable().Append("")
-				p.Dictionary().AttributeTable().AppendEmpty()
-				p.Dictionary().StackTable().AppendEmpty()
 				return p
 			}(),
 			dstProfiles: func() Profiles {
 				p := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				p.Dictionary().MappingTable().AppendEmpty()
-				p.Dictionary().LocationTable().AppendEmpty()
-				p.Dictionary().FunctionTable().AppendEmpty()
-				p.Dictionary().LinkTable().AppendEmpty()
-				p.Dictionary().StringTable().Append("")
-				p.Dictionary().AttributeTable().AppendEmpty()
-				p.Dictionary().StackTable().AppendEmpty()
 				return p
 			}(),
 		},
@@ -101,13 +87,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				ps := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				ps.Dictionary().MappingTable().AppendEmpty()
-				ps.Dictionary().LocationTable().AppendEmpty()
-				ps.Dictionary().FunctionTable().AppendEmpty()
-				ps.Dictionary().LinkTable().AppendEmpty()
-				ps.Dictionary().StringTable().Append("")
-				ps.Dictionary().AttributeTable().AppendEmpty()
-				ps.Dictionary().StackTable().AppendEmpty()
 
 				ps.Dictionary().StringTable().Append("sample-type")     // 1
 				ps.Dictionary().StringTable().Append("sample-unit")     // 2
@@ -154,13 +133,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				p := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				p.Dictionary().MappingTable().AppendEmpty()
-				p.Dictionary().LocationTable().AppendEmpty()
-				p.Dictionary().FunctionTable().AppendEmpty()
-				p.Dictionary().LinkTable().AppendEmpty()
-				p.Dictionary().StringTable().Append("")
-				p.Dictionary().AttributeTable().AppendEmpty()
-				p.Dictionary().StackTable().AppendEmpty()
 				return p
 			}(),
 		},
@@ -188,13 +160,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				ps := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				ps.Dictionary().MappingTable().AppendEmpty()
-				ps.Dictionary().LocationTable().AppendEmpty()
-				ps.Dictionary().FunctionTable().AppendEmpty()
-				ps.Dictionary().LinkTable().AppendEmpty()
-				ps.Dictionary().StringTable().Append("")
-				ps.Dictionary().AttributeTable().AppendEmpty()
-				ps.Dictionary().StackTable().AppendEmpty()
 
 				ps.Dictionary().StringTable().Append("sample-type-1") // 1
 				ps.Dictionary().StringTable().Append("sample-unit-1") // 2
@@ -229,13 +194,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				p := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				p.Dictionary().MappingTable().AppendEmpty()
-				p.Dictionary().LocationTable().AppendEmpty()
-				p.Dictionary().FunctionTable().AppendEmpty()
-				p.Dictionary().LinkTable().AppendEmpty()
-				p.Dictionary().StringTable().Append("")
-				p.Dictionary().AttributeTable().AppendEmpty()
-				p.Dictionary().StackTable().AppendEmpty()
 				return p
 			}(),
 		},
@@ -263,13 +221,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				ps := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				ps.Dictionary().MappingTable().AppendEmpty()
-				ps.Dictionary().LocationTable().AppendEmpty()
-				ps.Dictionary().FunctionTable().AppendEmpty()
-				ps.Dictionary().LinkTable().AppendEmpty()
-				ps.Dictionary().StringTable().Append("")
-				ps.Dictionary().AttributeTable().AppendEmpty()
-				ps.Dictionary().StackTable().AppendEmpty()
 
 				ps.Dictionary().StringTable().Append("sample-type-1") // 1
 				ps.Dictionary().StringTable().Append("sample-unit-1") // 2
@@ -304,13 +255,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				ps := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				ps.Dictionary().MappingTable().AppendEmpty()
-				ps.Dictionary().LocationTable().AppendEmpty()
-				ps.Dictionary().FunctionTable().AppendEmpty()
-				ps.Dictionary().LinkTable().AppendEmpty()
-				ps.Dictionary().StringTable().Append("")
-				ps.Dictionary().AttributeTable().AppendEmpty()
-				ps.Dictionary().StackTable().AppendEmpty()
 
 				ps.Dictionary().StringTable().Append("unrelated-1") // 1
 				ps.Dictionary().StringTable().Append("unrelated-2") // 2
@@ -342,13 +286,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				ps := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				ps.Dictionary().MappingTable().AppendEmpty()
-				ps.Dictionary().LocationTable().AppendEmpty()
-				ps.Dictionary().FunctionTable().AppendEmpty()
-				ps.Dictionary().LinkTable().AppendEmpty()
-				ps.Dictionary().StringTable().Append("")
-				ps.Dictionary().AttributeTable().AppendEmpty()
-				ps.Dictionary().StackTable().AppendEmpty()
 
 				ps.Dictionary().StringTable().Append("sample-type-1")  // 1
 				ps.Dictionary().StringTable().Append("sample-unit-1")  // 2
@@ -409,13 +346,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				p := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				p.Dictionary().MappingTable().AppendEmpty()
-				p.Dictionary().LocationTable().AppendEmpty()
-				p.Dictionary().FunctionTable().AppendEmpty()
-				p.Dictionary().LinkTable().AppendEmpty()
-				p.Dictionary().StringTable().Append("")
-				p.Dictionary().AttributeTable().AppendEmpty()
-				p.Dictionary().StackTable().AppendEmpty()
 				return p
 			}(),
 		},
@@ -443,13 +373,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				ps := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				ps.Dictionary().MappingTable().AppendEmpty()
-				ps.Dictionary().LocationTable().AppendEmpty()
-				ps.Dictionary().FunctionTable().AppendEmpty()
-				ps.Dictionary().LinkTable().AppendEmpty()
-				ps.Dictionary().StringTable().Append("")
-				ps.Dictionary().AttributeTable().AppendEmpty()
-				ps.Dictionary().StackTable().AppendEmpty()
 
 				ps.Dictionary().StringTable().Append("sample-type-1")  // 1
 				ps.Dictionary().StringTable().Append("sample-unit-1")  // 2
@@ -540,13 +463,6 @@ func TestProfilesMergeTo(t *testing.T) {
 				p := NewProfiles()
 
 				// Make sure we are conform with the protocol
-				p.Dictionary().MappingTable().AppendEmpty()
-				p.Dictionary().LocationTable().AppendEmpty()
-				p.Dictionary().FunctionTable().AppendEmpty()
-				p.Dictionary().LinkTable().AppendEmpty()
-				p.Dictionary().StringTable().Append("")
-				p.Dictionary().AttributeTable().AppendEmpty()
-				p.Dictionary().StackTable().AppendEmpty()
 				return p
 			}(),
 		},
@@ -587,7 +503,7 @@ func TestProfilesMergeTo(t *testing.T) {
 
 func TestProfilesMergeToSelf(t *testing.T) {
 	profiles := NewProfiles()
-	profiles.Dictionary().StringTable().Append("", "test")
+	profiles.Dictionary().StringTable().Append("test")
 	profiles.ResourceProfiles().AppendEmpty()
 
 	require.NoError(t, profiles.MergeTo(profiles))
@@ -636,13 +552,6 @@ func TestProfilesMergeTo_ResourceAttributeRoundTrip(t *testing.T) {
 	buildProfile := func(periodType, periodUnit, serviceName, extraKey, extraVal string) Profiles {
 		p := NewProfiles()
 		// Sentinel entries at index 0 (required by spec).
-		p.Dictionary().StringTable().Append("")
-		p.Dictionary().AttributeTable().AppendEmpty()
-		p.Dictionary().StackTable().AppendEmpty()
-		p.Dictionary().LocationTable().AppendEmpty()
-		p.Dictionary().FunctionTable().AppendEmpty()
-		p.Dictionary().MappingTable().AppendEmpty()
-		p.Dictionary().LinkTable().AppendEmpty()
 
 		p.Dictionary().StringTable().Append(periodType) // 1
 		p.Dictionary().StringTable().Append(periodUnit) // 2

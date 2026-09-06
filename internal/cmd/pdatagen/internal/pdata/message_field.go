@@ -21,7 +21,11 @@ func (ms {{ .structName }}) {{ .fieldName }}() {{ .packageName }}{{ .returnType 
 
 const messageAccessorsTestTemplate = `func Test{{ .structName }}_{{ .fieldName }}(t *testing.T) {
 	ms := New{{ .structName }}()
+	{{- if .customNew }}
+	assert.Equal(t, New{{ .structName }}().{{ .fieldName }}(), ms.{{ .fieldName }}())
+	{{- else }}
 	assert.Equal(t, {{ .packageName }}New{{ .returnType }}{{- if eq .returnType "Value" }}Empty{{- end }}(), ms.{{ .fieldName }}())
+	{{- end }}
 	ms.{{ .origAccessor }}.{{ .fieldOriginFullName }} = *internal.GenTest{{ .fieldOriginName }}()
 	{{- if .messageHasWrapper }}
 	assert.Equal(t, {{ .packageName }}{{ .returnType }}(internal.GenTest{{ .returnType }}Wrapper()), ms.{{ .fieldName }}())
@@ -86,6 +90,7 @@ func (mf *MessageField) templateFields(ms *messageStruct) map[string]any {
 		}(),
 		"origAccessor":  origAccessor(ms.getHasWrapper()),
 		"stateAccessor": stateAccessor(ms.getHasWrapper()),
+		"customNew":     ms.newFuncBody != "",
 	}
 }
 

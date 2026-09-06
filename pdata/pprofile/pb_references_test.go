@@ -16,9 +16,6 @@ import (
 func TestMarshalUnmarshalWithReferences(t *testing.T) {
 	profiles := NewProfiles()
 
-	dict := profiles.Dictionary()
-	dict.StringTable().Append("") // index 0, required empty string
-
 	rp := profiles.ResourceProfiles().AppendEmpty()
 	rp.Resource().Attributes().PutStr("service.name", "test-service")
 	rp.Resource().Attributes().PutStr("host.name", "test-host")
@@ -37,7 +34,7 @@ func TestMarshalUnmarshalWithReferences(t *testing.T) {
 	require.NotEmpty(t, bytes)
 
 	// Verify that string table was populated (should have more than just the empty string)
-	assert.Greater(t, dict.StringTable().Len(), 1, "String table should be populated during marshal")
+	assert.Greater(t, profiles.Dictionary().StringTable().Len(), 1, "String table should be populated during marshal")
 
 	// Verify references were created in the resource attributes
 	mapOrig := internal.GetMapOrig(internal.MapWrapper(rp.Resource().Attributes()))
@@ -83,8 +80,6 @@ func TestMarshalUnmarshalWithReferences(t *testing.T) {
 
 func TestMarshalUnmarshalNestedValues(t *testing.T) {
 	profiles := NewProfiles()
-	dict := profiles.Dictionary()
-	dict.StringTable().Append("") // index 0
 
 	rp := profiles.ResourceProfiles().AppendEmpty()
 	attrs := rp.Resource().Attributes()
@@ -136,8 +131,6 @@ func TestMarshalUnmarshalNestedValues(t *testing.T) {
 
 func TestRoundTripWithReferences(t *testing.T) {
 	original := NewProfiles()
-	dict := original.Dictionary()
-	dict.StringTable().Append("")
 
 	for i := range 3 {
 		rp := original.ResourceProfiles().AppendEmpty()
@@ -197,8 +190,6 @@ func TestRoundTripWithReferences(t *testing.T) {
 
 func TestProtoMarshalReadOnlyProfiles(t *testing.T) {
 	profiles := NewProfiles()
-	dict := profiles.Dictionary()
-	dict.StringTable().Append("") // index 0
 
 	rp := profiles.ResourceProfiles().AppendEmpty()
 	rp.Resource().Attributes().PutStr("service.name", "test-service")

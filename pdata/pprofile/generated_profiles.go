@@ -29,7 +29,16 @@ func newProfiles(orig *internal.ExportProfilesServiceRequest, state *internal.St
 // This must be used only in testing code. Users should use "AppendEmpty" when part of a Slice,
 // OR directly access the member if this is embedded in another struct.
 func NewProfiles() Profiles {
-	return newProfiles(internal.NewExportProfilesServiceRequest(), internal.NewState())
+	ms := newProfiles(internal.NewExportProfilesServiceRequest(), internal.NewState())
+	dictionary := ms.Dictionary()
+	dictionary.MappingTable().AppendEmpty()
+	dictionary.LocationTable().AppendEmpty()
+	dictionary.FunctionTable().AppendEmpty()
+	dictionary.LinkTable().AppendEmpty()
+	dictionary.StringTable().Append("")
+	dictionary.AttributeTable().AppendEmpty()
+	dictionary.StackTable().AppendEmpty()
+	return ms
 }
 
 // MoveTo moves all properties from the current struct overriding the destination and

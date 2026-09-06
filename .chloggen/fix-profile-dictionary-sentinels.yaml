@@ -1,0 +1,6 @@
+change_type: bug_fix
+component: pkg/pprofile
+note: Initialize profile dictionary tables with the required index-zero sentinel values.
+issues: [15897]
+subtext:
+change_logs: [api]

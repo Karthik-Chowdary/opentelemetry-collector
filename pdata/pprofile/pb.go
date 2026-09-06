@@ -3,6 +3,8 @@
 
 package pprofile // import "go.opentelemetry.io/collector/pdata/pprofile"
 
+import "go.opentelemetry.io/collector/pdata/internal"
+
 var _ MarshalSizer = (*ProtoMarshaler)(nil)
 
 type ProtoMarshaler struct{}
@@ -47,7 +49,7 @@ func (e *ProtoMarshaler) ProfileSize(pd Profile) int {
 type ProtoUnmarshaler struct{}
 
 func (d *ProtoUnmarshaler) UnmarshalProfiles(buf []byte) (Profiles, error) {
-	pd := NewProfiles()
+	pd := newProfiles(internal.NewExportProfilesServiceRequest(), internal.NewState())
 	err := pd.getOrig().UnmarshalProto(buf)
 	if err != nil {
 		return Profiles{}, err

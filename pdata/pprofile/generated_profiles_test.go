@@ -18,7 +18,9 @@ func TestProfiles_MoveTo(t *testing.T) {
 	ms := generateTestProfiles()
 	dest := NewProfiles()
 	ms.MoveTo(dest)
-	assert.Equal(t, NewProfiles(), ms)
+	empty := NewProfiles()
+	empty.MoveTo(NewProfiles())
+	assert.Equal(t, empty, ms)
 	assert.Equal(t, generateTestProfiles(), dest)
 	dest.MoveTo(dest)
 	assert.Equal(t, generateTestProfiles(), dest)
@@ -50,7 +52,7 @@ func TestProfiles_ResourceProfiles(t *testing.T) {
 
 func TestProfiles_Dictionary(t *testing.T) {
 	ms := NewProfiles()
-	assert.Equal(t, NewProfilesDictionary(), ms.Dictionary())
+	assert.Equal(t, NewProfiles().Dictionary(), ms.Dictionary())
 	ms.getOrig().Dictionary = *internal.GenTestProfilesDictionary()
 	assert.Equal(t, generateTestProfilesDictionary(), ms.Dictionary())
 }

@@ -16,7 +16,13 @@ func Test{{ .structName }}_MoveTo(t *testing.T) {
 	ms := generateTest{{ .structName }}()
 	dest := New{{ .structName }}()
 	ms.MoveTo(dest)
+	{{- if .newFuncBody }}
+	empty := New{{ .structName }}()
+	empty.MoveTo(New{{ .structName }}())
+	assert.Equal(t, empty, ms)
+	{{- else }}
 	assert.Equal(t, New{{ .structName }}(), ms)
+	{{- end }}
 	assert.Equal(t, generateTest{{ .structName }}(), dest)
 	dest.MoveTo(dest)
 	assert.Equal(t, generateTest{{ .structName }}(), dest)
